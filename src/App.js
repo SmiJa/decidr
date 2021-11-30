@@ -1,26 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Input from './components/Input';
+import ListDisplay from './components/ListDisplay';
+import EmptyMessage from './components/EmptyMessage';
 
 function App() {
   const [listContainer, setListContainer] = useState([]);
+  // console.log(listContainer.length);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Input/>
+      <div className="main-section">
+        {listContainer.length === 0 &&
+          <EmptyMessage/>
+        }
+        {listContainer.length > 0 &&
+          <ListDisplay
+          list={listContainer}
+          />
+        }
+      </div>
+      
+      
+      <Footer/>
     </div>
   );
 }
