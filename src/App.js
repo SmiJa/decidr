@@ -8,12 +8,14 @@ import EmptyMessage from './components/EmptyMessage';
 
 function App() {
   const [listContainer, setListContainer] = useState([]);
-  // console.log(listContainer.length);
 
   return (
     <div className="App">
       <Header/>
-      <Input/>
+      <Input
+        listContainer={listContainer}
+        setListContainer={setListContainer}
+      />
       <div className="main-section">
         {listContainer.length === 0 &&
           <EmptyMessage/>
