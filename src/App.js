@@ -8,6 +8,23 @@ import EmptyMessage from './components/EmptyMessage';
 
 function App() {
   const [listContainer, setListContainer] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [randomItem, setRandomItem] = useState("");
+
+  const rand = () => {
+    const randNum = Math.floor(Math.random() * listContainer.length);
+    setRandomItem(listContainer[randNum]);
+    return randomItem;
+}
+
+  const showModal = () => {
+    setDisplayModal(true);
+    rand();
+  }
+
+  const closeModal = () => {
+    setDisplayModal(false);
+  }
 
   return (
     <div className="App">
@@ -16,6 +33,7 @@ function App() {
         listContainer={listContainer}
         setListContainer={setListContainer}
       />
+      
       <div className="main-section">
         {listContainer.length === 0 &&
           <EmptyMessage/>
@@ -26,9 +44,19 @@ function App() {
           />
         }
       </div>
-      
-      
+      <div id="choose-item">
+          <button className="choose-btn" onClick={showModal}>Choose Item</button>
+      </div>
       <Footer/>
+      
+      {displayModal &&
+        <div className="modal">
+          {randomItem}
+          {console.log("Random Item: ", randomItem)}
+          <button onClick={closeModal}>Close</button>
+        </div>
+      }
+      
     </div>
   );
 }
