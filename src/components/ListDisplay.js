@@ -2,13 +2,13 @@ export default function ListDisplay(props) {
     const listItems = props.list;
     const buildList = listItems.map((item, index) => {
         return (
-            <li key={index}>{item}</li>
+            <li className="list-item" key={index}>{item}</li>
         )
     })
 
     return (
-        <div>
-            <ul>
+        <div className="list-wrap">
+            <ul className="list">
                 {buildList}
             </ul>
         </div>
