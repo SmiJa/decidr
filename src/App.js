@@ -10,6 +10,7 @@ function App() {
   const [listContainer, setListContainer] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
   const [randomItem, setRandomItem] = useState("");
+  // const [disable, setDisable] = useState(true);
 
   const rand = () => {
     const randNum = Math.floor(Math.random() * listContainer.length);
@@ -18,13 +19,24 @@ function App() {
 }
 
   const showModal = () => {
+    
     setDisplayModal(true);
+
+    // if (listContainer < 2) {
+    //   return (
+    //     <div>
+    //       You don't have enough items on the list. Please add at least 2 items to the list.
+    //     </div>
+    //   )
+    // }
+
     rand();
   }
 
   const closeModal = () => {
     setDisplayModal(false);
   }
+
 
   return (
     <div className="App">
@@ -45,14 +57,13 @@ function App() {
         }
       </div>
       <div id="choose-item">
-          <button className="choose-btn" onClick={showModal}>Choose Item</button>
+          <button disabled={!(listContainer.length >= 2)}  className="choose-btn" onClick={showModal}>Choose Item</button>
       </div>
       <Footer/>
       
       {displayModal &&
         <div className="modal">
           {randomItem}
-          {console.log("Random Item: ", randomItem)}
           <button onClick={closeModal}>Close</button>
         </div>
       }
