@@ -10,6 +10,12 @@ export default function Input({listContainer, setListContainer}) {
         setNewItem("");
     }
 
+    const clearList = (e) => {
+        e.preventDefault();
+        setListContainer([]);
+        setNewItem("");
+    }
+
     return (
         <div id="add-item">
             <form>
@@ -22,6 +28,7 @@ export default function Input({listContainer, setListContainer}) {
                     />
                 </div>                
                 <button type="submit" className="add-btn" onClick={formSubmit}>Add Item</button>
+                <button type="submit" className="add-btn" onClick={clearList}>Clear List</button>
             </form>
         </div>
     )
