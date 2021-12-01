@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import {useState} from 'react';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -22,13 +23,6 @@ function App() {
     
     setDisplayModal(true);
 
-    // if (listContainer < 2) {
-    //   return (
-    //     <div>
-    //       You don't have enough items on the list. Please add at least 2 items to the list.
-    //     </div>
-    //   )
-    // }
 
     rand();
   }
@@ -57,7 +51,7 @@ function App() {
         }
       </div>
       <div id="choose-item">
-          <button disabled={!(listContainer.length >= 2)}  className="choose-btn" onClick={showModal}>Choose Item</button>
+          <button disabled={!(listContainer.length >= 2) || displayModal}  className="choose-btn" onClick={showModal}>Choose Item</button>
       </div>
       <Footer/>
       
