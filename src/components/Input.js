@@ -1,17 +1,32 @@
 import { useState } from "react"
 
-export default function Input({listContainer, setListContainer}) {
+export default function Input({listContainer, setListContainer, setShowWarning, setMessage}) {
     const [newItem, setNewItem] = useState("");
 
     const formSubmit = (e) => {
         e.preventDefault();
+        if (newItem === "") {
+            setShowWarning(true);
+            setMessage("Your input is empty");
+            return false;
+        }
+
+        for (let i = 0; i <= listContainer.length; i++) {
+            if (listContainer[i] === newItem.trim()) {
+                setMessage("Item is already on the list.");
+                setShowWarning(true);
+                setNewItem("");
+                break;
+            } else {
+                setListContainer([...listContainer, newItem.trim()]);
+                setNewItem("");
+            }
+        }
         console.log(newItem);
-        setListContainer([...listContainer, newItem]);
-        setNewItem("");
+        
     }
 
-    const clearList = (e) => {
-        e.preventDefault();
+    const clearList = () => {
         setListContainer([]);
         setNewItem("");
     }

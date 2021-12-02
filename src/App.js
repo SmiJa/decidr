@@ -8,62 +8,72 @@ import ListDisplay from './components/ListDisplay';
 import EmptyMessage from './components/EmptyMessage';
 
 function App() {
-  const [listContainer, setListContainer] = useState([]);
-  const [displayModal, setDisplayModal] = useState(false);
-  const [randomItem, setRandomItem] = useState("");
-  // const [disable, setDisable] = useState(true);
+    const [listContainer, setListContainer] = useState([]);
+    const [displayModal, setDisplayModal] = useState(false);
+    const [randomItem, setRandomItem] = useState("");
+    const [showWarning, setShowWarning] = useState(false);
+    const [message, setMessage] = useState("");
 
-  const rand = () => {
-    const randNum = Math.floor(Math.random() * listContainer.length);
-    setRandomItem(listContainer[randNum]);
-    return randomItem;
-}
+    const randItem = () => {
+        const randNum = Math.floor(Math.random() * listContainer.length);
+        setRandomItem(listContainer[randNum]);
+        return randomItem;
+    }
 
-  const showModal = () => {
-    
-    setDisplayModal(true);
+    const showModal = () => {   
+        setDisplayModal(true);
+        randItem();
+    }
+
+    const closeModal = () => {
+        setDisplayModal(false);
+    }
+    const closeWarning = () => {
+        setShowWarning(false);
+        setMessage("");
+    }
 
 
-    rand();
-  }
-
-  const closeModal = () => {
-    setDisplayModal(false);
-  }
-
-
-  return (
-    <div className="App">
-      <Header/>
-      <Input
-        listContainer={listContainer}
-        setListContainer={setListContainer}
-      />
-      
-      <div className="main-section">
-        {listContainer.length === 0 &&
-          <EmptyMessage/>
-        }
-        {listContainer.length > 0 &&
-          <ListDisplay
-          list={listContainer}
-          />
-        }
-      </div>
-      <div id="choose-item">
-          <button disabled={!(listContainer.length >= 2) || displayModal}  className="choose-btn" onClick={showModal}>Choose Item</button>
-      </div>
-      <Footer/>
-      
-      {displayModal &&
-        <div className="modal">
-          {randomItem}
-          <button onClick={closeModal}>Close</button>
+    return (
+        <div className="App">
+        <Header/>
+        <Input
+            listContainer={listContainer}
+            setListContainer={setListContainer}
+            setShowWarning={setShowWarning}
+            setMessage={setMessage}
+        />
+        
+        <div className="main-section">
+            {listContainer.length === 0 &&
+            <EmptyMessage/>
+            }
+            {listContainer.length > 0 &&
+            <ListDisplay
+            list={listContainer}
+            />
+            }
         </div>
-      }
-      
-    </div>
-  );
+        <div id="choose-item">
+            <button disabled={!(listContainer.length >= 2) || displayModal}  className="choose-btn" onClick={showModal}>Choose Item</button>
+        </div>
+        <Footer/>
+        
+        {displayModal &&
+            <div className="modal">
+            {randomItem}
+            <button onClick={closeModal}>Close</button>
+            </div>
+        }
+        {showWarning &&
+            <div className="warning modal">
+                <p>{message}</p>
+                <button onClick={closeWarning}>Close</button>
+            </div>
+        }
+        
+        </div>
+    );
 }
 
 export default App;
