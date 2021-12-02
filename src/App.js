@@ -50,7 +50,8 @@ function App() {
             }
             {listContainer.length > 0 &&
             <ListDisplay
-            list={listContainer}
+            listContainer={listContainer}
+            setListContainer={setListContainer}
             />
             }
         </div>
