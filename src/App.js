@@ -42,6 +42,7 @@ function App() {
             setListContainer={setListContainer}
             setShowWarning={setShowWarning}
             setMessage={setMessage}
+            displayModal={displayModal}
         />
         
         <div className="main-section">
@@ -56,20 +57,34 @@ function App() {
             }
         </div>
         <div id="choose-item">
-            <button disabled={!(listContainer.length >= 2) || displayModal}  className="choose-btn" onClick={showModal}>Choose Item</button>
+            <button disabled={!(listContainer.length >= 2) || displayModal} className="choose-btn btn" onClick={showModal}>Decide</button>
         </div>
         <Footer/>
         
         {displayModal &&
-            <div className="modal">
-            {randomItem}
-            <button onClick={closeModal}>Close</button>
+            <div className="modal-wrap">
+                <div className="modal">
+                    <div className="banner default">
+                        <div className="banner-inner">
+                            Decision
+                        </div>
+                    </div>
+                    <p className="modal-text">{randomItem}</p>
+                    <button onClick={closeModal} className="try-again-btn btn">Close and Decide Again</button>
+                </div>
             </div>
         }
         {showWarning &&
-            <div className="warning modal">
-                <p>{message}</p>
-                <button onClick={closeWarning}>Close</button>
+            <div className="modal-wrap">
+                <div className="modal">
+                    <div className="banner warning">
+                        <div className="banner-inner">
+                            Warning
+                        </div>
+                    </div>
+                    <p className="modal-text">{message}</p>
+                    <button onClick={closeWarning} className="close-btn btn">Close</button>
+                </div>
             </div>
         }
         
