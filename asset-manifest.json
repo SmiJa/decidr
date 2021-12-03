@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/decidr/static/css/main.d85aa4ce.chunk.css",
-    "main.js": "/decidr/static/js/main.a4806b58.chunk.js",
-    "main.js.map": "/decidr/static/js/main.a4806b58.chunk.js.map",
-    "runtime-main.js": "/decidr/static/js/runtime-main.93048086.js",
-    "runtime-main.js.map": "/decidr/static/js/runtime-main.93048086.js.map",
-    "static/js/2.7d1573b3.chunk.js": "/decidr/static/js/2.7d1573b3.chunk.js",
-    "static/js/2.7d1573b3.chunk.js.map": "/decidr/static/js/2.7d1573b3.chunk.js.map",
-    "static/js/3.0438d4a2.chunk.js": "/decidr/static/js/3.0438d4a2.chunk.js",
-    "static/js/3.0438d4a2.chunk.js.map": "/decidr/static/js/3.0438d4a2.chunk.js.map",
+    "main.css": "/decidr/static/css/main.c4f85a15.chunk.css",
+    "main.js": "/decidr/static/js/main.0433a18c.chunk.js",
+    "main.js.map": "/decidr/static/js/main.0433a18c.chunk.js.map",
+    "runtime-main.js": "/decidr/static/js/runtime-main.75746b88.js",
+    "runtime-main.js.map": "/decidr/static/js/runtime-main.75746b88.js.map",
+    "static/css/2.704f007f.chunk.css": "/decidr/static/css/2.704f007f.chunk.css",
+    "static/js/2.7163aeea.chunk.js": "/decidr/static/js/2.7163aeea.chunk.js",
+    "static/js/2.7163aeea.chunk.js.map": "/decidr/static/js/2.7163aeea.chunk.js.map",
+    "static/js/3.fa6ba1eb.chunk.js": "/decidr/static/js/3.fa6ba1eb.chunk.js",
+    "static/js/3.fa6ba1eb.chunk.js.map": "/decidr/static/js/3.fa6ba1eb.chunk.js.map",
     "index.html": "/decidr/index.html",
-    "static/css/main.d85aa4ce.chunk.css.map": "/decidr/static/css/main.d85aa4ce.chunk.css.map",
-    "static/js/2.7d1573b3.chunk.js.LICENSE.txt": "/decidr/static/js/2.7d1573b3.chunk.js.LICENSE.txt"
+    "static/css/2.704f007f.chunk.css.map": "/decidr/static/css/2.704f007f.chunk.css.map",
+    "static/css/main.c4f85a15.chunk.css.map": "/decidr/static/css/main.c4f85a15.chunk.css.map",
+    "static/js/2.7163aeea.chunk.js.LICENSE.txt": "/decidr/static/js/2.7163aeea.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/decidr/static/media/asfalt-dark.12fc1a7a.png",
+    "static/media/bootstrap-icons.css": "/decidr/static/media/bootstrap-icons.ea6f3dfe.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.93048086.js",
-    "static/js/2.7d1573b3.chunk.js",
-    "static/css/main.d85aa4ce.chunk.css",
-    "static/js/main.a4806b58.chunk.js"
+    "static/js/runtime-main.75746b88.js",
+    "static/css/2.704f007f.chunk.css",
+    "static/js/2.7163aeea.chunk.js",
+    "static/css/main.c4f85a15.chunk.css",
+    "static/js/main.0433a18c.chunk.js"
   ]
 }
