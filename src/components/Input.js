@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Input({listContainer, setListContainer, setShowWarning, setMessage}) {
+export default function Input({listContainer, setListContainer, setShowWarning, setMessage, displayModal}) {
     const [newItem, setNewItem] = useState("");
 
     const formSubmit = (e) => {
@@ -11,16 +11,15 @@ export default function Input({listContainer, setListContainer, setShowWarning, 
             return false;
         }
 
-        for (let i = 0; i <= listContainer.length; i++) {
-            if (listContainer[i] === newItem.trim()) {
-                setMessage("Item is already on the list.");
-                setShowWarning(true);
-                setNewItem("");
-                break;
-            } else {
-                setListContainer([...listContainer, newItem.trim()]);
-                setNewItem("");
-            }
+        let loweredItem = newItem.toLowerCase().trim();
+
+        if (listContainer.every((item) => item.toLowerCase() !== loweredItem)) {
+            setListContainer([...listContainer, newItem.trim()]);
+            setNewItem("");
+        } else {
+            setMessage("Item is already on the list.");
+            setShowWarning(true);
+            setNewItem("");
         }
         console.log(newItem);
         
@@ -32,18 +31,19 @@ export default function Input({listContainer, setListContainer, setShowWarning, 
     }
 
     return (
-        <div id="add-item">
+        <div id="input">
             <form>
                 <div className="input-wrap">
                     <input
+                        className="text-input"
                         type="text"
                         value={newItem}
                         onChange={e => setNewItem(e.target.value)}
                         placeholder="Add an Item"
                     />
                 </div>                
-                <button type="submit" className="add-btn" onClick={formSubmit}>Add Item</button>
-                <button type="submit" className="add-btn" onClick={clearList}>Clear List</button>
+                <button disabled={displayModal} type="submit" className="add-btn btn" onClick={formSubmit}>Add Item</button>
+                <button disabled={displayModal} type="submit" className="clear-btn btn" onClick={clearList}>Clear List</button>
             </form>
         </div>
     )
