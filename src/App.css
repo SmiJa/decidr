@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -12,25 +14,45 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: radial-gradient(#082246, #01070e);
+  color: #cdcdcd;
 }
 
-header,
-footer {
+#header{
+  color: #eaac10de;
+  font-family: "Almendra";
+  font-weight: 700;
+  font-size: 1.5rem;
   text-align: center;
   background-color: rgba(0,0,0,0.6);
-  color: #dedede;
-  padding: 10px;
+  background: linear-gradient(#141002, #312602);
+  border-bottom: 5px solid #251b01;
 }
 
-.heart {
-  color: rgb(233, 105, 105);
-  font-size: 1.4rem
+#header .texture {
+  background-image: url('./images/StoneGrunge_50.png');
+}
+
+#header .texture-2 {
+  background-image: url('./images/asfalt-dark.png');
 }
 
 .main-section {
   flex: 2;
   overflow: auto;
   padding: 5px;
+  width: 90%;
+  margin: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #5e0606 transparent;
+}
+
+.main-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.main-section::-webkit-scrollbar-thumb {
+  background-color: #5e0606;;
 }
 
 .empty-message {
@@ -46,20 +68,195 @@ footer {
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal {
+.modal-wrap {
+  background-color: #333;
+  height: 100vh;
+  width: 100vw;
   z-index: 30;
   position: absolute;
-  top: calc(50% - 45vh);
-  width: 80vw;
-  height: 90vh;
-  align-self: center;
-  justify-self: center;
-  background-color: #333;
-  padding: 10px;
-  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.2);
 }
 
-#add-item {
-  padding: 14px;
-  background-color: rgba(0,0,0,0.2)
+.modal {
+  width: 80vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background:
+    #333
+    url('./images/StoneGrunge_50.png')
+  ;
+  padding: 10px;
+  border: 8px solid #1b1a13;
+  box-shadow: inset 0 0 20px 20px rgba(0,0,0,0.2);
+}
+
+.modal-text {
+  width: 80%;
+  word-break: break-all;
+}
+
+.banner {
+  width: 85%;
+  clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
+  filter: drop-shadow(15px 15px 15px rgba(0,0,0,0.6))
+}
+
+.banner-inner {
+  border-top: 3px solid #b1810a;
+  border-bottom: 3px solid #b1810a;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.default {
+  background-color: #042758;
+}
+
+.warning {
+  background-color: #630404;
+}
+
+#input .text-input {
+  margin: 10px;
+  padding: 5px;
+  font-size: 1.1rem;
+  color: #eaab10;
+  background-color: rgba(0,0,0,0.4);
+  border: 1px solid rgba(196, 217, 255, 0.315);
+}
+
+#input .text-input:focus {
+  outline: none;
+}
+
+#list-wrap {
+  width: 80%;
+  margin: auto;
+}
+
+#list-wrap .list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#list-wrap .list-item {
+  background-color: rgba(0,0,0,0.4);
+  margin: 8px 0;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  word-break: break-all;
+  text-align: left;
+  width: 100%;
+  border: 1px solid rgba(196, 217, 255, 0.315)
+}
+
+#list-wrap .trash {
+  color:rgb(189, 15, 15);
+  padding-left: 10px;
+}
+
+#footer {
+  background: linear-gradient(#0b3979, #062146);
+  border-top: 1px solid rgba(196, 217, 255, 0.315)
+}
+
+#footer .texture {
+  background-image: url('./images/StoneGrunge_50.png');
+  background-position: center center;
+  /* filter: invert(1); */
+}
+
+#footer .texture-2 {
+  background-image: url('./images/asfalt-dark.png');
+}
+
+#footer .text-wrap {
+  color: #eaab10;
+  padding: 10px;
+}
+
+#footer .heart {
+  color: rgb(233, 105, 105);
+  font-size: 1.4rem
+}
+
+.btn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 10px;
+  margin: 10px;
+  color: #eaab10;
+  background: radial-gradient(#5e0606, #270202);
+  box-shadow: inset 0 3px 0 0 rgba(136, 10, 10, 0.452);
+  border: 3px solid #4b4113;
+  border-radius: 30px;
+}
+
+.choose-btn {
+  width: 80%;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:disabled {
+  color: #eaac1078;
+}
+
+@media screen and (min-width: 800px) {
+  #header {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    padding: 15px;
+    font-size: 1rem;
+    color: #c28e0b;
+  }
+
+  .modal {
+    width: 40vw;
+    font-size: 1.8rem;
+  }
+
+  #list-wrap .list-item {
+    width: 50%;
+    font-size: 1.2rem;
+  }
+
+  .banner {
+    clip-path: polygon(100% 0%, 92% 50%, 100% 100%, 0 100%, 8% 50%, 0 0);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    width: 40vw;
+  }
+
+  .main-section {
+    width: 40%;
+  }
+
+  #list-wrap {
+    width: 90%;
+  }
+
+  #list-wrap .list-item {
+    width: 100%;
+    font-size: 1.2rem;
+  }
 }
